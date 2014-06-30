@@ -2,3 +2,9 @@ All of the files and scripts associated with
 re-annotating classic classification data with 
 multiple annotations from crowdflower.
 
+input/  #scripts and resulting data that was used to run the user study
+  20ng-reannotate.csv contains the actual 1000 files that were re-annotated
+
+results/  # annotations gotten from crowdflower
+  
+cml  # documents the precise gui that annotators used

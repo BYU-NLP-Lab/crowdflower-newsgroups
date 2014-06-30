@@ -1,0 +1,23 @@
+{{document}}
+<cml:checkboxes label="Check all that apply" class="" validates="required">
+    <cml:checkbox label="alt.atheism"/>
+    <cml:checkbox label="comp.graphics"/>
+    <cml:checkbox label="comp.os.ms-windows.misc"/>
+    <cml:checkbox label="comp.sys.ibm.pc.hardware" id=""/>
+    <cml:checkbox label="comp.sys.mac.hardware" id=""/>
+    <cml:checkbox label="comp.windows.x" id=""/>
+    <cml:checkbox label="misc.forsale" id=""/>
+    <cml:checkbox label="rec.autos" id=""/>
+    <cml:checkbox label="rec.motorcycles" id=""/>
+    <cml:checkbox label="rec.sport.baseball" id=""/>
+    <cml:checkbox label="rec.sport.hockey" id=""/>
+    <cml:checkbox label="sci.crypt" id=""/>
+    <cml:checkbox label="sci.electronics" id=""/>
+    <cml:checkbox label="sci.med" id=""/>
+    <cml:checkbox label="sci.space" id=""/>
+    <cml:checkbox label="soc.religion.christian" id=""/>
+    <cml:checkbox label="talk.politics.guns" id=""/>
+    <cml:checkbox label="talk.politics.mideast" id=""/>
+    <cml:checkbox label="talk.politics.misc" id=""/>
+    <cml:checkbox label="talk.religion.misc" id=""/>
+  </cml:checkboxes>
