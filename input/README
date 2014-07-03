@@ -1,0 +1,14 @@
+use the following process to get a re-annotated portion of the newsgroups corpus:
+
+1) convert newsgroups to a single big csv table (newsgroups.csv). Cols include 
+  "index" = relative path to the original document (e.g., groups/alt.atheism/29234)
+  "category_gold" = contains the correct label for text questions only
+
+2) create a human-readable version of the data and put it in a web-accessible place (nlp.cs.byu.edu/~plf1/newsgroups/. this will be referenced from the crowdflower task so that we don't have to try to embed unpredictable data (escaping punctuation, newlines, etc) in the csv we upload to crowdflower.
+
+3) split all.csv into two parts: included.csv (all the rows to be included in the crowdflower (CF) experiment), and excluded.csv (other rows). Included will include 1,000 instances, plus 10 test instances per class.
+
+4) process included.csv on CF. Download csv with all judgments on each item (including test questions): newsgroups-annotated.csv
+
+5) combine newsgroups-annotated.csv and excluded.csv into a single big-ol' json stream suitable for use with LearningCurve.java
+
