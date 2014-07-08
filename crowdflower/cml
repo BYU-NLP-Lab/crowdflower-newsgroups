@@ -1,0 +1,25 @@
+{{index}}
+<cml:checkboxes name="category" label="Check all that apply" class="" validates="required" gold="true">
+  
+  <cml:checkbox value="alt.atheism" label="Atheism"></cml:checkbox>
+  <cml:checkbox value="comp.graphics" label="Graphics"></cml:checkbox>
+  <cml:checkbox value="comp.os.ms-windows.misc" label="MS Windows"></cml:checkbox>
+  <cml:checkbox value="comp.sys.ibm.pc.hardware" label="IBM Hardware" id=""></cml:checkbox>
+  <cml:checkbox value="comp.sys.mac.hardware" label="Mac Hardware" id=""></cml:checkbox>
+  <cml:checkbox value="comp.windows.x" label="X window system" id=""></cml:checkbox>
+  <cml:checkbox value="misc.forsale" label="For Sale" id=""></cml:checkbox>
+  <cml:checkbox value="rec.autos" label="Automobiles" id=""></cml:checkbox>
+  <cml:checkbox value="rec.motorcycles" label="Motorcycles" id=""></cml:checkbox>
+  <cml:checkbox value="rec.sport.baseball" label="Baseball" id=""></cml:checkbox>
+  <cml:checkbox value="rec.sport.hockey" label="Hockey" id=""></cml:checkbox>
+  <cml:checkbox value="sci.crypt" label="Cryptography" id=""></cml:checkbox>
+  <cml:checkbox value="sci.electronics" label="Electronics" id=""></cml:checkbox>
+  <cml:checkbox value="sci.med" label="Medicine" id=""></cml:checkbox>
+  <cml:checkbox value="sci.space" label="Space" id=""></cml:checkbox>
+  <cml:checkbox value="soc.religion.christian" label="Christian Religion" id=""></cml:checkbox>
+  <cml:checkbox value="talk.politics.guns" label="Gun Politics" id=""></cml:checkbox>
+  <cml:checkbox value="talk.politics.mideast" label="Mideast Politics" id=""></cml:checkbox>
+  <cml:checkbox value="talk.politics.misc" label="Miscellaneous Politics" id=""></cml:checkbox>
+  <cml:checkbox value="talk.religion.misc" label="Miscellaneous Religion" id=""></cml:checkbox>
+</cml:checkboxes>
+

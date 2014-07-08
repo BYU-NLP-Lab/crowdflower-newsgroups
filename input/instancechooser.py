@@ -1,4 +1,5 @@
 #!/usr/bin/python
+import random
 from random import shuffle
 from collections import Counter
 import argparse
@@ -23,6 +24,7 @@ if __name__ == "__main__":
     parser.add_argument("--excluded",default="excluded.csv",help="The name of the excluded instances.")
     parser.add_argument("--num-to-include",type=int,default=1000,help="The number of instances to include")
     parser.add_argument("--num-trusted-labels-per-class",type=int,default=10,help="The number of trusted labels per class.")
+    parser.add_argument("--seed",type=int,default=1,help="The random seed used to shuffle the dataset (for repeatability).")
     args = parser.parse_args()
 
     # read big csv
@@ -35,6 +37,7 @@ if __name__ == "__main__":
     if testcol not in fieldnames:
         fieldnames.append(testcol)
     data = [d for d in reader]
+    random.seed(args.seed)
     shuffle(data)
 
     # prepare to write two smaller csvs
@@ -52,7 +55,6 @@ if __name__ == "__main__":
     trusted_cnt = Counter()
     included_cnt = 0
     for row in data:
-        row[goldreasoncol] = goldreasonval
         # copy gold label into hidden column
         if hiddencol not in row:
             row[hiddencol] = row[goldcol]
@@ -60,13 +62,15 @@ if __name__ == "__main__":
         cat = row[hiddencol]
         if trusted_cnt[cat] < n:
             row[goldcol] = row[hiddencol] # ensure gold column is not hidden
+            row[goldreasoncol] = goldreasonval # ensure gold column reason is not hidden
             row[testcol] = "TRUE"
             inc_writer.writerow(row)
             trusted_cnt[cat] += 1
         # choose n 
         elif included_cnt < args.num_to_include:
             row[goldcol] = "" # hide gold column
-            row[testcol] = "FALSE"
+            row[goldreasoncol] = "" # ensure gold column reason is hidden
+            row[testcol] = ""
             inc_writer.writerow(row)
             included_cnt += 1
         else:
