@@ -67,4 +67,5 @@ def write_image(args):
 def write_images_in_parallel(text_path_generator,num_processes=8):
     pool = Pool(processes=num_processes)
     pool.map(write_image, text_path_generator)
+    pool.close()
 
