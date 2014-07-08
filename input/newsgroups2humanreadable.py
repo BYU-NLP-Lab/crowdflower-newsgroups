@@ -7,6 +7,13 @@ from os import path
 from subprocess import call
 import csv
 
+def n_lines(n,text):
+    lines,head = 0,0
+    while lines<n:
+        head += text.index('\n')
+        lines += 1
+    return text[:head]
+
 def filter_ng_header(text):
     sections = text.split("\n\n")
     header = sections[0]
@@ -17,7 +24,7 @@ def filter_ng_header(text):
         raise Exception("header must contain only a single header line: %s" % header)
     return "\n\n".join([subject_line[0],body])
 
-def text_path_generator(basedir,outdir,csvfile,max_doc_len):
+def text_path_generator(basedir,outdir,csvfile,max_doc_lines):
     for row in csv.DictReader(open(csvfile)):
         docpath = path.join(basedir,row['index'])
         short_doc = path.join(outdir,row['short_doc'])
@@ -28,7 +35,7 @@ def text_path_generator(basedir,outdir,csvfile,max_doc_len):
         filtered_text = filter_ng_header(text)
 
         # short doc
-        yield filtered_text[:args.max_doc_len], short_doc
+        yield n_lines(args.max_doc_lines,filtered_text), short_doc
 
         # full doc
         fullpath = path.join(full_doc,"full_doc")
@@ -41,7 +48,7 @@ if __name__ == "__main__":
     parser.add_argument("--basedir",default="/aml/data/newsgroups",help="The directory where the newsgroups corpus lives, organized in a file/folder hierarchy where files such as newsgroups/indices/dataset/split/category0.txt contain relative file paths for a document with the label category0.")
     parser.add_argument("--csvfile",default="included.csv",help="The name of the csv file whose instances should be converted. There must be a column named 'index' which points to the relative path of each instance, 'short_doc', and 'full_doc' which point to locations for a file/folder to be written, respectively.")
     parser.add_argument("--outdir",default="/aml/home/plf1/public_html/newsgroups",help="The location of the output directory")
-    parser.add_argument("--max-doc-len",type=int,default=1200,help="The max number of characters the short doc summary has in it.")
+    parser.add_argument("--max-doc-lines",type=int,default=25,help="The max number of lines the short doc summary has in it.")
     args = parser.parse_args()
 
     # write images
@@ -49,5 +56,5 @@ if __name__ == "__main__":
         args.basedir,
         args.outdir,
         args.csvfile,
-        args.max_doc_len))
+        args.max_doc_lines))
 
