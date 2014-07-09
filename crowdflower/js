@@ -1,0 +1,23 @@
+// ‘$’ is MooTools 
+
+// Disable check counter, and update it automatically whenever a checkbox is clicked
+var checkboxhandler = function(e){
+  console.log(e.target);
+  // update numchecked using elements with the same name as this (part of the same task)
+  var name = e.target.name.split('[')[0]; // split the [ to isolate the CF task name (ignore subtasks)
+  // how many checkboxes that start with this name are checked?
+  var numchecked = $$('input[name^="'+name+'"].category:checked').length;
+  // update the counter that starts with this name (there should only be 1)
+  $$('input[name^="'+name+'"].numchecked')[0].value = numchecked;
+}
+$$('input.numchecked').setProperties({"disabled":"disabled"}); // disable text box
+$$('input.category').addEvent('click',checkboxhandler); // attach click handler
+
+// make odd rows float right (for 2 columns)
+$$('input.oddrow').map(function(e){
+  e.parentElement.parentElement.setStyle('float','right');
+  e.parentElement.parentElement.setStyle('width','13em');
+})
+$$('input.evenrow').map(function(e){
+  e.parentElement.parentElement.setStyle('width','13em');
+})
