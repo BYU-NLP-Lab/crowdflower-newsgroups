@@ -1,0 +1,17 @@
+Crowdflower provides a number of download options for results. I've listed them below along with their descriptions (from cf's gui). 
+Additionally, cf allows you to either include or exclude untrusted judgments (judgments from people who got kicked out of the study 
+eventually for failing too many embedded test questions--in this case when their accuracy fell below 50%).
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+Full: This is the full dataset of all contributor judgments. If you want to see data while your job is still running, visit Results "Settings".
+Aggregated: These are your results! Our statistical quality control aggregates the contributor judgments to give you the highest confidence result for each unit. If you want to see data while your job is still running, visit Results "Settings".
+Source: ?
+Test questions: ?
+Contributor: ?
+Json: ?
+-------------------------------------------------------------------------------------------------------------------------------------------------
+
+1000/ # contains the results of the 1000 items annotated on July 10th
+  trusted/ # contains versions of the files excluding untrusted judgments
+  untrusted/ # contains versions of the files including untrusted judgments
+
