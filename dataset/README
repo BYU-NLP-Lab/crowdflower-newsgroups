@@ -1,0 +1,26 @@
+Creates an annotation stream dataset 
+by postprocessing the items in the results folder.
+
+The resulting annotation stream has 
+the following structure:
+
+[
+    # An annotated instance
+    {   batch: 123
+        source: "http://document/id",
+        data: "The text of the first document",
+        label: "TrueLabel",
+        annotator: "george",
+`       annotation: "SomeLabel"
+        "startTime":1319123,
+        "endTime":1319198}
+    },
+    etc...
+]
+
+If 'batch' is set, this annotation was received as part 
+of a batch of annotations sharing this number. 
+Annotations in the same batch are reported consecutively.
+
+startTimeSecs and endTimeSecs are utc timestamps (number 
+of secs since 1 Jan 1970))
