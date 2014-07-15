@@ -36,5 +36,5 @@ echo "translating excluded data into an annotation stream"
 
 # combine the two streams into the full annotation stream dataset
 echo "combining annotated and unannotated data into a single annotation stream"
-/usr/bin/python3 ~/git/utils/annotation_streams/append.py tmp/20.json tmp/unannotated.json > newsgroups.json
+/usr/bin/python3 ~/git/utils/annotation_streams/append.py tmp/20.json tmp/unannotated.json > newsgroups1000.json
 
