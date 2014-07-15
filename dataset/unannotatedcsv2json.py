@@ -9,12 +9,13 @@ def custom_objects_from_csv(basedir,csvpath):
     reader = csv.DictReader(open(csvpath))
     for item in reader:
         index = item["index"]
+        label = item["hidden_label"]
         yield {   
             # no batch
-            # no label
             # no annotator/anntoations/startTime/endTime
+            "label": label,
             "source": index,
-            "data": os.path.join(basedir,index),
+            "datapath": os.path.join(basedir,index),
         }
 
 if __name__ == "__main__":
