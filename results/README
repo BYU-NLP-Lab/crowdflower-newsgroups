@@ -2,16 +2,92 @@ Crowdflower provides a number of download options for results. I've listed them 
 Additionally, cf allows you to either include or exclude untrusted judgments (judgments from people who got kicked out of the study 
 eventually for failing too many embedded test questions--in this case when their accuracy fell below 50%).
 
--------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------
 Full: This is the full dataset of all contributor judgments. If you want to see data while your job is still running, visit Results "Settings".
 Aggregated: These are your results! Our statistical quality control aggregates the contributor judgments to give you the highest confidence result for each unit. If you want to see data while your job is still running, visit Results "Settings".
 Source: ?
 Test questions: ?
 Contributor: ?
-Json: ?
--------------------------------------------------------------------------------------------------------------------------------------------------
+Json: A json data that would be returned by their streaming api. This is the most complete version of the information, and so includes both trusted and untrusted judgments
+----------------------------------------------------------------------------------------------------------------
 
 1000/ # contains the results of the 1000 items annotated on July 10th
   trusted/ # contains versions of the files excluding untrusted judgments
   untrusted/ # contains versions of the files including untrusted judgments
+  json.zip # full info in json form
 
+
+
+
+The json contains a number of judgments, each of which has the following fields, as explained by CF documentation July 2014:
+#############################################
+#############################################
+#############################################
+"judgments": [
+
+{
+
+"worker_id": CrowdFlower Contributor ID,
+
+"city": worker city
+
+"job_id": job number (ID),
+
+"external_type": Channel via which the contributor entered the job.
+
+"tainted": Boolean – is judgment from an untrusted contributor,
+
+"data": {
+
+“data” is a hash attribute that contains a workers responses to each of the questions they responded to. It is the judgment level version of the field result attribute:
+
+"field_name1":"answer1",
+
+"field_name1":"answer2"
+
+},
+
+"unit_data":{
+
+“unit_data is a hash attribute that contains the initial data that you posted for this unit (also called "source data"):
+
+"your_data":"your_data",
+
+"your_data1":"your_data1",
+
+"your_data2":"your_data2"
+
+},
+
+"trust": The trust of the contributor,
+
+"golden": Boolean - is this a gold (test) unit or not,
+
+"judgment": Numeric indices of the judgment for this unit,
+
+"created_at": Timestamp for the submission of the judgment,
+
+"unit_id": CrowdFlower’s numeric ID for the unit,
+
+"unit_state": State of the unit, should always read: "finalized",
+
+"region": Worker region,
+
+"country": Worker country code,
+
+"rejected": If the contributor was rejected or not,
+
+"started_at":Timestamp for the start of the judgment,
+
+"id": Judgement ID (Unique identifier),
+
+"worker_trust": Contributor trust (accuracy on hidden test questions),
+
+"missed": You may safely ignore this attribute.
+
+},
+
+]
+#############################################
+#############################################
+#############################################

@@ -5,10 +5,12 @@ mkdir tmp
 
 #basedir=/aml/data/newsgroups
 basedir=../../data/newsgroups
+mintrust=0.0
+minworkertrust=0.0
 
 # turn crowdflower annotations into an annotation stream
 echo "translating crowdflower data into an annotation stream"
-/usr/bin/python3 ~/git/utils/annotation_streams/crowdflower/convert.py -b $basedir -o tmp/annotated.json ../results/1000/untrusted/job_505945.json 
+/usr/bin/python3 ~/git/utils/annotation_streams/crowdflower/convert.py --min-trust $mintrust --min-worker-trust $minworkertrust -b $basedir -o tmp/annotated.json ../results/1000/job_505945.json 
 
 # translate crowdflower annotations from period-delimited to underscore delimited
 echo "translating all dots to underscores in crowdflower annotations"
