@@ -1,8 +1,16 @@
+raw/ # contains the raw results downloaded from crowdflower after 1000 newsgroups items were annotated on July 10th
+  trusted/ # contains versions of the files excluding untrusted judgments
+  untrusted/ # contains versions of the files including untrusted judgments
+  json.zip # full info in json form
+
+cfgroups1000.json # a dataset derived from processing raw/json.zip into a simple list of annotation objects with their time of receival. 
+
+########################################################
+raw/ contains 
 Crowdflower provides a number of download options for results. I've listed them below along with their descriptions (from cf's gui). 
 Additionally, cf allows you to either include or exclude untrusted judgments (judgments from people who got kicked out of the study 
 eventually for failing too many embedded test questions--in this case when their accuracy fell below 50%).
-
-----------------------------------------------------------------------------------------------------------------
+########################################################
 Full: This is the full dataset of all contributor judgments. If you want to see data while your job is still running, visit Results "Settings".
 Aggregated: These are your results! Our statistical quality control aggregates the contributor judgments to give you the highest confidence result for each unit. If you want to see data while your job is still running, visit Results "Settings".
 Source: ?
@@ -10,12 +18,6 @@ Test questions: ?
 Contributor: ?
 Json: A json data that would be returned by their streaming api. This is the most complete version of the information, and so includes both trusted and untrusted judgments
 ----------------------------------------------------------------------------------------------------------------
-
-1000/ # contains the results of the 1000 items annotated on July 10th
-  trusted/ # contains versions of the files excluding untrusted judgments
-  untrusted/ # contains versions of the files including untrusted judgments
-  json.zip # full info in json form
-
 
 
 
