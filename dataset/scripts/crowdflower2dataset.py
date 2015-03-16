@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-from myjson import jsonmess
+import jsonmess
 import calendar
 from dateutil import parser as dateparser
 import argparse

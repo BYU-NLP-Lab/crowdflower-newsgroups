@@ -3,14 +3,18 @@ echo "removing old json files from tmp"
 rm -r tmp
 mkdir tmp
 
-#basedir=/aml/data/newsgroups
+# set basedir to the location of your newsgroups dataset
 basedir=../../data/newsgroups
 mintrust=0.0
 minworkertrust=0.0
 
+mkdir tmp/data
+cp ../results/json.zip tmp/data/
+pushd tmp/data; unzip json.zip; popd
+
 # turn crowdflower annotations into an annotation stream
 echo "translating crowdflower data into an annotation stream"
-/usr/bin/python3 ./scripts/convert.py --min-trust $mintrust --min-worker-trust $minworkertrust -b $basedir -o tmp/annotated.json ../results/1000/job_505945.json 
+/usr/bin/python3 ./scripts/crowdflower2dataset.py --min-trust $mintrust --min-worker-trust $minworkertrust -b $basedir -o tmp/annotated.json tmp/data/job_505945.json 
 
 # translate crowdflower annotations from period-delimited to underscore delimited
 echo "translating all dots to underscores in crowdflower annotations"
@@ -37,7 +41,7 @@ echo "translating all dots to underscores in crowdflower annotations"
 
 # turn unannotated data into an "annotation" stream
 echo "translating excluded data into an annotation stream"
-/usr/bin/python3 unannotatedcsv2json.py -b $basedir -o tmp/unannotated.json ../input/excluded.csv
+/usr/bin/python3 ./scripts/unannotatedcsv2json.py -b $basedir -o tmp/unannotated.json ../input/excluded.csv
 
 # combine the two streams into the full annotation stream dataset
 echo "combining annotated and unannotated data into a single annotation stream"
