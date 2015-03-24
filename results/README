@@ -1,7 +1,13 @@
 When we generated this dataset, CrowdFlower provided a number of download options for results. 
 They are listed below (Full, Aggregated, etc.) along with their description given by CrowdFlower (if available).
-Additionally, CrowdFlower provided the option to either include or exclude untrusted judgments (judgments from people who got kicked out of the study 
-eventually for failing too many embedded test questions--in this case when their accuracy fell below 50%).
+We use the json data as the basis for creating our dataset.
+
+Additionally, CrowdFlower allowed us to download the "Full" dataset including "untrusted" judgments 
+(judgments from people who got kicked out of the study 
+eventually for failing too many embedded test questions--
+in this case when their accuracy fell below 50%).
+This is only for reference. "Untrusted" judgments and annotators
+don't appear in the json dataset that we use.
 
 
 

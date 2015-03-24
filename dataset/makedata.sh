@@ -12,7 +12,7 @@ minworkertrust=0.0
 set -e
 
 mkdir tmp/data
-cp ../results/json.zip tmp/data/
+cp ../results/trusted/json.zip tmp/data/
 pushd tmp/data; unzip json.zip; popd
 
 # turn crowdflower annotations into an annotation stream
