@@ -1,13 +1,18 @@
-########################################################
-Crowdflower provides a number of download options for results. I've listed them below along with their descriptions (from cf's gui). 
-Additionally, cf allows you to either include or exclude untrusted judgments (judgments from people who got kicked out of the study 
+When we generated this dataset, CrowdFlower provided a number of download options for results. 
+They are listed below (Full, Aggregated, etc.) along with their description given by CrowdFlower (if available).
+Additionally, CrowdFlower provided the option to either include or exclude untrusted judgments (judgments from people who got kicked out of the study 
 eventually for failing too many embedded test questions--in this case when their accuracy fell below 50%).
-########################################################
+
+
+
+
+##########################################################################################
+### The verbiage below was copied from CrowdFlower's dataset download gui at the time this dataset was produced:
+##########################################################################################
 Full: This is the full dataset of all contributor judgments. If you want to see data while your job is still running, visit Results "Settings".
 Aggregated: These are your results! Our statistical quality control aggregates the contributor judgments to give you the highest confidence result for each unit. If you want to see data while your job is still running, visit Results "Settings".
-Source: ?
-Test questions: ?
-Contributor: ?
+contributor: [no docs]
+source: [no docs]
 Json: A json data that would be returned by their streaming api. This is the most complete version of the information, and so includes both trusted and untrusted judgments
 The json file contains a number of judgments, each of which has the following fields, as explained by CF documentation July 2014:
 --------------------------------------------------------
@@ -76,6 +81,3 @@ The json file contains a number of judgments, each of which has the following fi
 },
 
 ]
-#############################################
-#############################################
-#############################################
