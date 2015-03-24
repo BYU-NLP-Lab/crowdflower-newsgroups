@@ -8,6 +8,9 @@ basedir=../../data/newsgroups
 mintrust=0.0
 minworkertrust=0.0
 
+# set to fail early if a delegate script fails
+set -e
+
 mkdir tmp/data
 cp ../results/json.zip tmp/data/
 pushd tmp/data; unzip json.zip; popd
