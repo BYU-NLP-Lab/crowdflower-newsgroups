@@ -22,5 +22,10 @@ If 'batch' is set, this annotation was received as part
 of a batch of annotations sharing this number. 
 Annotations in the same batch are reported consecutively.
 
+The "data" attribute may optionally be replaced by "datapath", which gives 
+a relative path to a file that contains the data, which is 
+convenient for data that contains punctuation that makes it 
+awkward to embed inside json.
+
 startTimeSecs and endTimeSecs are utc timestamps (number 
 of secs since 1 Jan 1970))
