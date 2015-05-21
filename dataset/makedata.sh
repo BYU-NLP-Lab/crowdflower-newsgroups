@@ -4,7 +4,7 @@ rm -r tmp
 mkdir tmp
 
 # set basedir to the location of your newsgroups dataset
-basedir=../../data/newsgroups
+basedir=newsgroups_data
 mintrust=0.0
 minworkertrust=0.0
 

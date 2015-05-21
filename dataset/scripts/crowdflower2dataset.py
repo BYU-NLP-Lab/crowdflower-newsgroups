@@ -29,13 +29,13 @@ def custom_objects_from_crowdflower(basedir,jsonpath,min_trust,min_worker_trust)
                     yield {   
                         # "batch": None, # we didn't get batch infor from crowdflower that I can see
                         "source": index,
-                        "datapath": os.path.join(basedir,index),
+                        "datapath": index,
                         "label": label,
                         "labelobserved": golden,
                         "annotator": judge["worker_id"],
                         "annotation": cat,
-                        "startTime": timestamp(judge["started_at"]),
-                        "endTime": timestamp(judge["created_at"])
+                        "starttime": timestamp(judge["started_at"]),
+                        "endtime": timestamp(judge["created_at"])
                     }
 
 if __name__ == "__main__":
